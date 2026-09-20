@@ -326,3 +326,23 @@ if (rodape) {
     }
   });
 }
+
+// === Cabeçalho mobile/tablet: fechamento do painel ===
+(() => {
+  const mqMenu = window.matchMedia('(max-width: 899px)');
+  const botaoMenu = document.querySelector('.menu-toggle');
+  const painelMenu = document.querySelector('.mobile-menu');
+  const cabecalho = document.querySelector('.site-header');
+  if (!botaoMenu || !painelMenu || !cabecalho) return;
+  const fecharMenu = () => {
+    botaoMenu.setAttribute('aria-expanded', 'false');
+    botaoMenu.setAttribute('aria-label', 'Abrir menu');
+    painelMenu.hidden = true;
+  };
+  document.addEventListener('keydown', event => {
+    if (mqMenu.matches && event.key === 'Escape' && botaoMenu.getAttribute('aria-expanded') === 'true') fecharMenu();
+  });
+  document.addEventListener('pointerdown', event => {
+    if (mqMenu.matches && botaoMenu.getAttribute('aria-expanded') === 'true' && !cabecalho.contains(event.target)) fecharMenu();
+  }, { passive: true });
+})();
