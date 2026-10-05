@@ -1084,3 +1084,57 @@ html,body{max-width:100%;overflow-x:clip}
   .climatizacao-24h-cta:active,
   .projeto-eletrico-cta:active{transform:none!important}
 }
+
+
+/* === Correção de publicação GitHub Pages 2026-10-05 === */
+/* Força as cinco artes iniciais a seguirem a largura real da viewport,
+   sem alturas herdadas, letterboxing ou espaços pretos artificiais. */
+.hero.hero-arte,
+.apresentacao-section,
+.manutencao-eletrica-nova-section,
+.climatizacao-24h-section,
+.projeto-eletrico-section{
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+.hero.hero-arte .hero-photo-wrap,
+.hero.hero-arte .hero-picture,
+.apresentacao-media,
+.apresentacao-media picture,
+.manutencao-eletrica-nova-media,
+.manutencao-eletrica-nova-media picture,
+.climatizacao-24h-media,
+.climatizacao-24h-media picture,
+.projeto-eletrico-media,
+.projeto-eletrico-media picture{
+  display:block!important;
+  position:relative;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  aspect-ratio:auto!important;
+}
+.hero.hero-arte .hero-photo,
+.apresentacao-imagem,
+.manutencao-eletrica-nova-imagem,
+.climatizacao-24h-imagem,
+.projeto-eletrico-imagem{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
