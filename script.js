@@ -19,7 +19,7 @@ const CONFIG = {
     {sigla:'CREA/CFT',legenda:'ART e TRT',garante:'Projetos, laudos e execuções acompanhados de ART ou TRT, emitida por profissional habilitado e registrado no conselho de classe.'},
     {sigla:'ABNT',legenda:'Normas técnicas',garante:'Projetos e execuções seguindo as normas técnicas da ABNT, como a NBR 5410 (baixa tensão), a NBR 14039 (média tensão) e a NBR 5419 (proteção contra descargas atmosféricas).'}
   ],
-  mapaUrl: 'https://www.google.com/maps?q=Florian%C3%B3polis%2C+SC%2C+Brasil&z=10&output=embed',
+  mapaUrl: 'https://www.google.com/maps?q=Florian%C3%B3polis%2C+SC%2C+Brasil&z=10&t=k&output=embed',
   mapaLink: 'https://www.google.com/maps/search/?api=1&query=Florian%C3%B3polis%2C+SC',
   regioes: ['Florianópolis','São José','Palhoça','Santo Amaro da Imperatriz','Biguaçu','Águas Mornas','São Pedro de Alcântara','Antônio Carlos','Governador Celso Ramos','Paulo Lopes','Tijucas','Rancho Queimado'],
   galeria: [
@@ -346,3 +346,23 @@ if (rodape) {
     if (mqMenu.matches && botaoMenu.getAttribute('aria-expanded') === 'true' && !cabecalho.contains(event.target)) fecharMenu();
   }, { passive: true });
 })();
+
+// === Entrada suave da apresentação oficial ===
+const apresentacao = document.querySelector('[data-apresentacao]');
+if (apresentacao && !reduced) {
+  apresentacao.classList.add('apresentacao-ready');
+  if ('IntersectionObserver' in window) {
+    const apresentacaoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        apresentacao.classList.add('apresentacao-in');
+        apresentacao.classList.remove('apresentacao-ready');
+        apresentacaoObserver.disconnect();
+      });
+    }, { threshold: .08, rootMargin: '0px 0px -6% 0px' });
+    apresentacaoObserver.observe(apresentacao);
+  } else {
+    apresentacao.classList.add('apresentacao-in');
+    apresentacao.classList.remove('apresentacao-ready');
+  }
+}

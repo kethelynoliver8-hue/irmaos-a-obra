@@ -403,3 +403,684 @@
 
   .mapa-etiqueta,.mapa-link{display:none}
 }
+
+/* === Novo banner principal: arte 3D fornecida pelo cliente === */
+.hero.hero-arte{
+  position:relative;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  overflow:hidden;
+  background:#0A0A0A;
+  isolation:isolate;
+}
+.hero.hero-arte .hero-photo-wrap{
+  position:relative;
+  inset:auto;
+  z-index:0;
+  width:100%;
+  height:auto;
+  overflow:hidden;
+  background:#0A0A0A;
+  transform:none!important;
+}
+.hero.hero-arte .hero-picture{display:block;width:100%;height:auto}
+.hero.hero-arte .hero-photo{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+  object-fit:contain;
+  object-position:center;
+  transform:none!important;
+  animation:none!important;
+  filter:none!important;
+  opacity:1;
+}
+.hero.hero-arte .hero-cursor-glow{display:none!important}
+
+/* Em telas estreitas, amplia a mesma arte e prioriza a área esquerda,
+   onde estão identidade, contatos e slogan, sem deformar a imagem. */
+@media (max-width:599px){
+  .hero.hero-arte .hero-photo-wrap{aspect-ratio:1.11/1}
+  .hero.hero-arte .hero-picture{height:100%}
+  .hero.hero-arte .hero-photo{
+    width:160%;
+    height:auto;
+    min-height:100%;
+    object-fit:cover;
+    object-position:left center;
+  }
+}
+
+/* === Apresentação oficial — segunda seção === */
+.apresentacao-section{position:relative;padding:clamp(28px,4vw,56px) clamp(14px,2.5vw,32px);overflow:hidden;background:linear-gradient(180deg,#080808 0%,#0b0b0b 55%,#0a0a0a 100%)}
+.apresentacao-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(242,179,28,.055),transparent 58%);pointer-events:none}
+.apresentacao-media{position:relative;width:min(100%,1500px);margin-inline:auto;aspect-ratio:2048/768;line-height:0;isolation:isolate;filter:drop-shadow(0 18px 34px rgba(0,0,0,.28));opacity:1;transform:none}
+.apresentacao-media picture,.apresentacao-imagem{display:block;width:100%;height:auto}
+.apresentacao-imagem{aspect-ratio:2048/768;object-fit:contain}
+.js .apresentacao-media.apresentacao-ready{opacity:0;transform:translateY(20px)}
+.js .apresentacao-media.apresentacao-in{opacity:1;transform:translateY(0);transition:opacity .62s ease,transform .62s ease}
+.apresentacao-cta{position:absolute;z-index:2;left:9.28%;top:47.40%;width:21.45%;height:12.00%;border-radius:12px;cursor:pointer;outline:none;line-height:normal;background:transparent;transition:filter .18s ease,transform .18s ease,box-shadow .18s ease;transform-origin:center}
+.apresentacao-cta:hover{filter:brightness(1.08);transform:scale(1.01);box-shadow:0 0 22px rgba(242,179,28,.18)}
+.apresentacao-cta:focus-visible{outline:2px solid #ffd45a;outline-offset:3px;box-shadow:0 0 0 4px rgba(242,179,28,.18)}
+@media(max-width:600px){.apresentacao-section{padding:26px 8px}.apresentacao-media{width:100%;filter:drop-shadow(0 10px 22px rgba(0,0,0,.24))}.apresentacao-cta{border-radius:7px}}
+@media(prefers-reduced-motion:reduce){.js .apresentacao-media.apresentacao-ready,.js .apresentacao-media.apresentacao-in{opacity:1;transform:none;transition:none}.apresentacao-cta{transition:none}.apresentacao-cta:hover{transform:none}}
+
+/* === Ajuste final Hero -> Apresentação: full width + transição sobreposta === */
+.hero.hero-arte::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  height:clamp(54px,7vw,108px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,rgba(5,5,5,.18) 28%,rgba(5,5,5,.58) 68%,#050505 100%);
+}
+.apresentacao-section{
+  width:100%;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background:#050505;
+}
+.apresentacao-section::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+  right:0;
+  height:clamp(38px,5vw,76px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,#050505 0%,rgba(5,5,5,.62) 30%,rgba(5,5,5,.22) 68%,transparent 100%);
+}
+.apresentacao-media{
+  width:100%;
+  max-width:none;
+  margin:0;
+  aspect-ratio:2048/768;
+  filter:none;
+}
+.apresentacao-media picture,
+.apresentacao-imagem{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+}
+.apresentacao-imagem{
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+.apresentacao-cta{z-index:3}
+@media(max-width:600px){
+  .apresentacao-section{padding:0;margin:0}
+  .apresentacao-media{width:100%;max-width:none;margin:0;filter:none}
+  .hero.hero-arte::after{height:clamp(42px,13vw,62px)}
+  .apresentacao-section::before{height:clamp(30px,10vw,46px)}
+}
+
+/* === Instalação e manutenção — terceira seção === */
+.apresentacao-section::after{
+  content:"";
+  position:absolute;
+  z-index:4;
+  left:0;right:0;bottom:0;
+  height:clamp(44px,6vw,92px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,rgba(5,5,5,.18) 28%,rgba(5,5,5,.58) 68%,#050505 100%);
+}
+
+.projeto-eletrico-section{position:relative;width:100%;padding:0;margin:0;overflow:hidden;background:#050505}
+.projeto-eletrico-section::before{content:"";position:absolute;z-index:2;left:0;right:0;top:0;height:clamp(34px,4.5vw,70px);pointer-events:none;background:linear-gradient(to bottom,#050505 0%,rgba(5,5,5,.60) 30%,rgba(5,5,5,.20) 68%,transparent 100%)}
+.projeto-eletrico-section::after{content:"";position:absolute;z-index:2;left:0;right:0;bottom:0;height:clamp(34px,4.5vw,70px);pointer-events:none;background:linear-gradient(to bottom,transparent 0%,rgba(5,5,5,.16) 35%,rgba(5,5,5,.48) 72%,#050505 100%)}
+.projeto-eletrico-media{position:relative;width:100%;margin:0;line-height:0;isolation:isolate}
+.projeto-eletrico-media picture,.projeto-eletrico-imagem{display:block;width:100%;height:auto;max-width:none}
+.projeto-eletrico-imagem{object-fit:contain}
+.projeto-eletrico-cta{position:absolute;z-index:3;left:55.4%;top:84.0%;width:40.5%;height:11.0%;border-radius:14px;cursor:pointer;outline:none;background:transparent;transition:filter .18s ease,transform .18s ease,box-shadow .18s ease;transform-origin:center}
+.projeto-eletrico-cta:hover{filter:brightness(1.08);transform:scale(1.01);box-shadow:0 0 22px rgba(242,179,28,.16)}
+.projeto-eletrico-cta:focus-visible{outline:2px solid #ffd45a;outline-offset:2px;box-shadow:0 0 0 4px rgba(242,179,28,.16)}
+@media(max-width:600px){.projeto-eletrico-section::before,.projeto-eletrico-section::after{height:clamp(26px,8vw,38px)}.projeto-eletrico-cta{border-radius:6px}}
+@media(prefers-reduced-motion:reduce){.projeto-eletrico-cta{transition:none}.projeto-eletrico-cta:hover{transform:none}}
+
+/* Ajustes de leitura das seções tradicionais e rodapé */
+@media (min-width: 1101px){
+  .certificacoes-section .servicos-kicker,
+  .galeria-section .servicos-kicker,
+  .regioes-section .servicos-kicker,
+  .duvidas-section .servicos-kicker{font-size:clamp(1.45rem,1.55vw,1.8rem);gap:20px}
+  .certificacoes-section .servicos-kicker span,
+  .galeria-section .servicos-kicker span,
+  .regioes-section .servicos-kicker span,
+  .duvidas-section .servicos-kicker span{width:86px}
+  .certificacoes-section .servicos-head>p,
+  .galeria-section .servicos-head>p,
+  .regioes-section .servicos-head>p,
+  .duvidas-section .servicos-head>p{max-width:960px;font-size:clamp(1.45rem,1.65vw,1.85rem);line-height:1.5;margin-top:20px}
+  .rodape-marca-texto{max-width:440px;margin-top:24px;font-size:clamp(1.25rem,1.35vw,1.55rem);line-height:1.55}
+  .rodape-garantia{margin-top:14px;font-size:clamp(1.2rem,1.3vw,1.5rem);line-height:1.4}
+}
+@media (min-width: 601px) and (max-width: 1100px){
+  .certificacoes-section .servicos-kicker,.galeria-section .servicos-kicker,.regioes-section .servicos-kicker,.duvidas-section .servicos-kicker{font-size:1.2rem;gap:16px}
+  .certificacoes-section .servicos-kicker span,.galeria-section .servicos-kicker span,.regioes-section .servicos-kicker span,.duvidas-section .servicos-kicker span{width:68px}
+  .certificacoes-section .servicos-head>p,.galeria-section .servicos-head>p,.regioes-section .servicos-head>p,.duvidas-section .servicos-head>p{font-size:1.25rem;line-height:1.5;max-width:820px}
+  .rodape-marca-texto{font-size:1.15rem;max-width:400px;margin-top:20px}
+  .rodape-garantia{font-size:1.1rem;margin-top:12px}
+}
+@media (max-width: 600px){
+  .certificacoes-section .servicos-kicker,.galeria-section .servicos-kicker,.regioes-section .servicos-kicker,.duvidas-section .servicos-kicker{font-size:1rem;gap:10px;letter-spacing:.14em}
+  .certificacoes-section .servicos-kicker span,.galeria-section .servicos-kicker span,.regioes-section .servicos-kicker span,.duvidas-section .servicos-kicker span{width:38px}
+  .certificacoes-section .servicos-head>p,.galeria-section .servicos-head>p,.regioes-section .servicos-head>p,.duvidas-section .servicos-head>p{font-size:1.08rem;line-height:1.5}
+  .rodape-marca-texto{font-size:1.05rem;line-height:1.55;margin-top:20px}
+  .rodape-garantia{font-size:1.05rem;margin-top:12px}
+}
+
+
+/* === Ajustes finais de responsividade, escala e mapa — 2026-10 === */
+html,body{max-width:100%;overflow-x:clip}
+*,*::before,*::after{box-sizing:border-box}
+
+/* Header sem logo: mantém navegação e CTA, com escala mais compacta. */
+.site-header{height:72px}
+.header-inner{height:100%;grid-template-columns:1fr auto;gap:24px}
+.desktop-nav{justify-content:flex-start;gap:28px}
+.mobile-menu{top:72px}
+
+/* Todos os cinco banners aprovados ficam integralmente dentro da viewport. */
+.hero.hero-arte,.apresentacao-section,.projeto-eletrico-section{width:100%;max-width:100%;margin-inline:0;overflow:hidden}
+.hero.hero-arte .hero-photo-wrap,.apresentacao-media,.projeto-eletrico-media{width:100%;max-width:100%;margin-inline:0}
+.hero.hero-arte .hero-picture,.hero.hero-arte .hero-photo,
+.apresentacao-media picture,.apresentacao-imagem,
+.projeto-eletrico-media picture,.projeto-eletrico-imagem{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;transform:none}
+.apresentacao-section{padding:0}
+.apresentacao-media{max-width:none;filter:none}
+
+/* Seções tradicionais: meio-termo entre a escala original e a versão ampliada. */
+.certificacoes-section,#galeria.galeria-section,#regioes.regioes-section,#duvidas.duvidas-section{padding-block:clamp(42px,5vw,68px)}
+.certificacoes-section .servicos-kicker,.galeria-section .servicos-kicker,.regioes-section .servicos-kicker,.duvidas-section .servicos-kicker{font-size:clamp(.95rem,1.05vw,1.15rem);gap:14px}
+.certificacoes-section .servicos-kicker span,.galeria-section .servicos-kicker span,.regioes-section .servicos-kicker span,.duvidas-section .servicos-kicker span{width:clamp(44px,4vw,60px)}
+.certificacoes-section .servicos-head h2,.galeria-section .servicos-head h2,.regioes-section .servicos-head h2,.duvidas-section .servicos-head h2{font-size:clamp(1.75rem,2.8vw,2.55rem);margin-top:12px}
+.certificacoes-section .servicos-head>p,.galeria-section .servicos-head>p,.regioes-section .servicos-head>p,.duvidas-section .servicos-head>p{max-width:780px;font-size:clamp(1rem,1.12vw,1.2rem);line-height:1.5;margin-top:14px}
+.cert-head,.galeria-head,.regioes-head{margin-bottom:34px}
+.cert-palco{margin-top:30px}
+.galeria-faixa{gap:18px}.galeria-card{border-radius:18px}
+.regioes-conteudo{min-height:440px;gap:20px}.mapa-card,.painel-regioes{min-height:440px;border-radius:20px}.painel-regioes{padding:24px}.chip-cidade{min-height:44px;padding:8px 14px;font-size:14px}.painel-divisoria{margin:15px 0}
+.faq-lista{margin-top:30px}.faq-item summary{min-height:58px;padding-block:14px}.duvidas-final,.regioes-final,.galeria-final,.cert-final{margin-top:20px}
+.servicos-final{padding:20px 22px;gap:18px}.servicos-btn{min-height:48px;padding-inline:16px}
+
+/* Rodapé mais compacto sem perder a leitura. */
+.rodape-principal{padding-block:42px 30px}.rodape-grid{gap:34px}.rodape-logo{height:58px}
+.rodape-marca-texto{max-width:360px;margin-top:16px;font-size:1.05rem;line-height:1.5}.rodape-garantia{margin-top:9px;font-size:1.05rem}
+
+/* WhatsApp flutuante ampliado, com escala segura em telas menores. */
+.whatsapp-float{width:112px!important;height:112px!important;right:26px;bottom:26px}
+.whatsapp-float .icone-btn{width:58px!important;height:58px!important;min-width:58px!important;min-height:58px!important;flex-basis:58px!important}
+
+@media(max-width:1100px){
+  .site-header{height:64px}.header-inner{grid-template-columns:1fr auto}.mobile-menu{top:64px}
+  .certificacoes-section,#galeria.galeria-section,#regioes.regioes-section,#duvidas.duvidas-section{padding-block:clamp(38px,5vw,54px)}
+  .certificacoes-section .servicos-kicker,.galeria-section .servicos-kicker,.regioes-section .servicos-kicker,.duvidas-section .servicos-kicker{font-size:1rem}
+  .certificacoes-section .servicos-head>p,.galeria-section .servicos-head>p,.regioes-section .servicos-head>p,.duvidas-section .servicos-head>p{font-size:1.05rem}
+  .regioes-conteudo{min-height:0}.mapa-card{height:330px;min-height:330px}.painel-regioes{min-height:0}
+  .whatsapp-float{width:92px!important;height:92px!important;right:20px;bottom:20px}.whatsapp-float .icone-btn{width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important;flex-basis:48px!important}
+}
+
+@media(max-width:600px){
+  .site-header{height:58px}.header-inner{min-height:58px;height:58px;display:flex;justify-content:flex-end;padding-inline:14px}.site-header .menu-toggle{width:46px;height:46px;margin-left:auto}.site-header .mobile-menu{top:58px;max-height:calc(100svh - 58px)}
+  /* No celular, nenhuma arte é ampliada/cortada: mostra a imagem horizontal completa. */
+  .hero.hero-arte{padding:0;min-height:0;height:auto}
+  .hero.hero-arte .hero-photo-wrap{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:auto;overflow:hidden}
+  .hero.hero-arte .hero-picture{display:block;width:100%;height:auto}
+  .hero.hero-arte .hero-photo{display:block;width:100%;height:auto;min-height:0;max-width:100%;object-fit:contain;object-position:center}
+  .certificacoes-section,#galeria.galeria-section,#regioes.regioes-section,#duvidas.duvidas-section{padding-block:36px}
+  .certificacoes-section .servicos-kicker,.galeria-section .servicos-kicker,.regioes-section .servicos-kicker,.duvidas-section .servicos-kicker{font-size:.88rem;gap:9px;letter-spacing:.12em}
+  .certificacoes-section .servicos-kicker span,.galeria-section .servicos-kicker span,.regioes-section .servicos-kicker span,.duvidas-section .servicos-kicker span{width:32px}
+  .certificacoes-section .servicos-head h2,.galeria-section .servicos-head h2,.regioes-section .servicos-head h2,.duvidas-section .servicos-head h2{font-size:clamp(1.55rem,7vw,1.9rem);margin-top:10px}
+  .certificacoes-section .servicos-head>p,.galeria-section .servicos-head>p,.regioes-section .servicos-head>p,.duvidas-section .servicos-head>p{font-size:.98rem;line-height:1.45;margin-top:10px}
+  .cert-head,.galeria-head,.regioes-head{margin-bottom:26px}
+  .servicos-final{padding:16px 14px}.servicos-final-actions{width:100%;min-width:0}.servicos-btn,.mobile-cta,.header-cta{width:100%;max-width:100%;min-width:0;box-sizing:border-box;padding-inline:12px;gap:8px;white-space:normal;text-align:center;line-height:1.15;font-size:clamp(11px,3.15vw,13px)}
+  .servicos-btn .icone-btn,.mobile-cta .icone-btn{flex:0 0 22px;width:22px;height:22px;min-width:22px}
+  .rodape-principal{padding-block:34px 26px}.rodape-grid{gap:26px}.rodape-marca-texto{font-size:1rem;margin-top:14px}.rodape-garantia{font-size:1rem;margin-top:8px}.rodape-direitos{padding-bottom:108px}
+  .whatsapp-float{width:78px!important;height:78px!important;right:14px;bottom:14px}.whatsapp-float .icone-btn{width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;flex-basis:40px!important}
+}
+
+/* === 3 ajustes pontuais: hero na viewport, menu central e WhatsApp intermediário === */
+@media (min-width:901px){
+  .site-header .header-inner{position:relative;display:flex;align-items:center;justify-content:flex-end}
+  .site-header .desktop-nav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);justify-content:center;margin:0}
+  .site-header .header-cta{margin-left:auto}
+
+  .hero.hero-arte{height:calc(100svh - 72px);min-height:0;max-height:none;display:flex;align-items:center;justify-content:center;background:#0A0A0A}
+  .hero.hero-arte .hero-photo-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .hero.hero-arte .hero-picture{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+  .hero.hero-arte .hero-photo{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center center}
+}
+
+/* Tamanho intermediário: menor que a versão anterior, sem voltar ao original. */
+.whatsapp-float{width:82px!important;height:82px!important;right:24px;bottom:24px}
+.whatsapp-float .icone-btn{width:43px!important;height:43px!important;min-width:43px!important;min-height:43px!important;flex-basis:43px!important}
+
+@media (max-width:1100px){
+  .whatsapp-float{width:70px!important;height:70px!important;right:18px;bottom:18px}
+  .whatsapp-float .icone-btn{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;flex-basis:36px!important}
+}
+
+@media (max-width:900px){
+  .hero.hero-arte{height:auto;min-height:0;max-height:none;display:block}
+  .hero.hero-arte .hero-photo-wrap,.hero.hero-arte .hero-picture{width:100%;height:auto;display:block}
+  .hero.hero-arte .hero-photo{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center}
+}
+
+@media (max-width:600px){
+  .whatsapp-float{width:62px!important;height:62px!important;right:14px;bottom:14px}
+  .whatsapp-float .icone-btn{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;flex-basis:32px!important}
+}
+
+/* === Banners full-bleed na proporção natural === */
+.hero.hero-arte,
+.apresentacao-section,
+.projeto-eletrico-section{
+  width:100%;
+  max-width:none;
+  height:auto;
+  min-height:0;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+.hero.hero-arte .hero-photo-wrap,
+.apresentacao-media,
+.projeto-eletrico-media{
+  position:relative;
+  width:100%;
+  max-width:none;
+  height:auto;
+  min-height:0;
+  margin:0;
+  padding:0;
+  aspect-ratio:auto;
+}
+.hero.hero-arte .hero-picture,
+.apresentacao-media picture,
+.projeto-eletrico-media picture{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  margin:0;
+  padding:0;
+}
+.hero.hero-arte .hero-photo,
+.apresentacao-imagem,
+.projeto-eletrico-imagem{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  min-height:0;
+  margin:0;
+  object-fit:initial;
+  object-position:center;
+  transform:none!important;
+}
+
+/* === Nova seção visual: manutenção elétrica em Florianópolis === */
+.manutencao-eletrica-nova-section{
+  position:relative;
+  width:100%;
+  max-width:100%;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background:#050505;
+}
+.manutencao-eletrica-nova-section::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  top:0;
+  height:clamp(34px,4.5vw,70px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,#050505 0%,rgba(5,5,5,.58) 30%,rgba(5,5,5,.18) 68%,transparent 100%);
+}
+.manutencao-eletrica-nova-section::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  height:clamp(44px,6vw,92px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,rgba(5,5,5,.16) 30%,rgba(5,5,5,.52) 70%,#050505 100%);
+}
+.manutencao-eletrica-nova-media{
+  position:relative;
+  width:100%;
+  max-width:100%;
+  margin:0;
+  line-height:0;
+  isolation:isolate;
+}
+.manutencao-eletrica-nova-media picture,
+.manutencao-eletrica-nova-imagem{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+}
+.manutencao-eletrica-nova-imagem{
+  object-fit:contain;
+  transform:none;
+}
+.manutencao-eletrica-nova-hotspot{
+  position:absolute;
+  z-index:3;
+  left:66.15%;
+  width:20.95%;
+  height:8.55%;
+  border:0;
+  border-radius:10px;
+  background:transparent;
+  cursor:pointer;
+  outline:none;
+}
+.manutencao-eletrica-nova-contato{top:74.10%}
+.manutencao-eletrica-nova-orcamento{top:84.45%}
+.manutencao-eletrica-nova-hotspot:focus-visible{
+  outline:2px solid #ffd45a;
+  outline-offset:2px;
+}
+@media(max-width:600px){
+  .manutencao-eletrica-nova-section::before,
+  .manutencao-eletrica-nova-section::after{height:clamp(26px,8vw,38px)}
+  .manutencao-eletrica-nova-hotspot{border-radius:5px}
+}
+
+
+/* === Nova seção visual: climatização / ar-condicionado 24h === */
+.climatizacao-24h-section{
+  position:relative;
+  width:100%;
+  max-width:100%;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background:#050505;
+}
+.climatizacao-24h-section::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  top:0;
+  height:clamp(28px,3.8vw,58px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,#050505 0%,rgba(5,5,5,.50) 28%,rgba(5,5,5,.14) 66%,transparent 100%);
+}
+.climatizacao-24h-section::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  height:clamp(32px,4.4vw,68px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,rgba(5,5,5,.12) 32%,rgba(5,5,5,.44) 72%,#050505 100%);
+}
+.climatizacao-24h-media{
+  position:relative;
+  width:100%;
+  max-width:100%;
+  margin:0;
+  line-height:0;
+  isolation:isolate;
+}
+.climatizacao-24h-media picture,
+.climatizacao-24h-imagem{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+}
+.climatizacao-24h-imagem{
+  object-fit:contain;
+  transform:none;
+}
+.climatizacao-24h-cta{
+  position:absolute;
+  z-index:3;
+  left:54.15%;
+  top:79.55%;
+  width:37.55%;
+  height:11.75%;
+  border:0;
+  border-radius:10px;
+  background:transparent;
+  cursor:pointer;
+  outline:none;
+}
+.climatizacao-24h-cta:focus-visible{
+  outline:2px solid #ffd45a;
+  outline-offset:2px;
+}
+@media(max-width:600px){
+  .climatizacao-24h-section::before,
+  .climatizacao-24h-section::after{height:clamp(22px,7vw,34px)}
+  .climatizacao-24h-cta{border-radius:5px}
+}
+
+/* === Ajuste pontual: nova arte panorâmica de Projeto Elétrico === */
+.projeto-eletrico-section{
+  width:100%;max-width:none;height:auto;min-height:0;margin:0;padding:0;overflow:hidden;background:#050505;
+}
+.projeto-eletrico-media,.projeto-eletrico-media picture,.projeto-eletrico-imagem{
+  display:block;width:100%;max-width:none;height:auto;min-height:0;margin:0;padding:0;
+}
+.projeto-eletrico-media{position:relative;line-height:0}
+.projeto-eletrico-imagem{object-fit:initial;transform:none!important}
+.projeto-eletrico-cta{
+  left:58.9%;top:79.4%;width:32.2%;height:14.2%;
+  background:transparent;border:0;cursor:pointer;
+}
+
+
+/* === Divisores visuais entre as grandes artes iniciais — arte oficial === */
+.visual-divider{
+  position:relative;
+  z-index:6;
+  width:100%;
+  height:40px;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  line-height:0;
+  background:#050505;
+}
+.visual-divider img{
+  position:absolute;
+  top:50%;
+  left:0;
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  margin:0;
+  transform:translateY(-50%);
+  pointer-events:none;
+  user-select:none;
+}
+@media(max-width:1024px){
+  .visual-divider{height:30px}
+}
+@media(max-width:600px){
+  .visual-divider{height:22px}
+}
+
+
+/* === Microinterações premium dos elementos clicáveis === */
+.header-cta,
+.mobile-cta,
+.servicos-btn{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transition:transform .24s ease,box-shadow .24s ease,background-color .24s ease,color .24s ease,filter .24s ease;
+}
+.header-cta::before,
+.mobile-cta::before,
+.servicos-btn::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:-45%;
+  bottom:-45%;
+  left:-38%;
+  width:24%;
+  pointer-events:none;
+  opacity:0;
+  transform:translateX(0) skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+}
+.header-cta .icone-btn,
+.mobile-cta .icone-btn,
+.servicos-btn .icone-btn{
+  transition:transform .24s ease,color .24s ease;
+}
+.header-cta:focus-visible,
+.mobile-cta:focus-visible,
+.servicos-btn:focus-visible,
+.whatsapp-float:focus-visible{
+  outline:2px solid #ffd45a;
+  outline-offset:4px;
+}
+.header-cta:active,
+.mobile-cta:active,
+.servicos-btn:active{transform:translateY(0) scale(.98)}
+
+/* A linha do menu nasce suavemente da esquerda, sem alterar sua geometria. */
+.desktop-nav a::after{
+  transform-origin:left center;
+  transition:transform .24s ease;
+}
+
+/* O anel existente do WhatsApp fica estático; a interação acontece somente no hover/toque. */
+.whatsapp-float::after{animation:none!important}
+.whatsapp-float{
+  transition:transform .24s ease,box-shadow .24s ease;
+}
+.whatsapp-float:active{transform:translateY(0) scale(.97)}
+
+@media (hover:hover) and (pointer:fine){
+  .header-cta:hover,
+  .mobile-cta:hover,
+  .servicos-btn-primary:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.06);
+    box-shadow:0 9px 18px rgba(0,0,0,.34),0 0 18px rgba(242,179,28,.24);
+  }
+  .servicos-btn-outline:hover{
+    transform:translateY(-2px);
+    background:var(--dourado);
+    color:var(--preto);
+    box-shadow:0 9px 18px rgba(0,0,0,.30),0 0 16px rgba(242,179,28,.22);
+  }
+  .header-cta:hover::before,
+  .mobile-cta:hover::before,
+  .servicos-btn:hover::before{
+    opacity:1;
+    transform:translateX(620%) skewX(-18deg);
+    transition:transform .48s ease,opacity .18s ease;
+  }
+  .header-cta:hover .icone-btn,
+  .mobile-cta:hover .icone-btn,
+  .servicos-btn:hover .icone-btn{transform:scale(1.05) rotate(-3deg)}
+  .whatsapp-float:hover{
+    transform:translateY(-2px) scale(1.08);
+    box-shadow:0 14px 34px rgba(0,0,0,.42),0 0 18px rgba(37,211,102,.22);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .header-cta,.mobile-cta,.servicos-btn,.whatsapp-float,
+  .header-cta .icone-btn,.mobile-cta .icone-btn,.servicos-btn .icone-btn,
+  .desktop-nav a::after{transition:none!important}
+  .header-cta::before,.mobile-cta::before,.servicos-btn::before{display:none!important}
+  .header-cta:hover,.mobile-cta:hover,.servicos-btn:hover,.whatsapp-float:hover,
+  .header-cta:active,.mobile-cta:active,.servicos-btn:active,.whatsapp-float:active{transform:none!important}
+}
+
+/* === Hotspots dos CTAs impressos nas artes (seções visuais 3, 4 e 5) ===
+   A arte permanece intacta: somente uma película de luz transparente reage ao ponteiro. */
+.manutencao-eletrica-nova-hotspot,
+.climatizacao-24h-cta,
+.projeto-eletrico-cta{
+  isolation:isolate;
+  overflow:hidden;
+  background:transparent;
+  transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;
+}
+.manutencao-eletrica-nova-hotspot::before,
+.climatizacao-24h-cta::before,
+.projeto-eletrico-cta::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(105deg,rgba(255,255,255,0) 15%,rgba(255,231,164,.10) 42%,rgba(255,255,255,.22) 50%,rgba(255,211,83,.10) 58%,rgba(255,255,255,0) 85%);
+  transform:translateX(-115%);
+}
+.manutencao-eletrica-nova-hotspot:focus-visible,
+.climatizacao-24h-cta:focus-visible,
+.projeto-eletrico-cta:focus-visible{
+  outline:2px solid #ffd45a;
+  outline-offset:3px;
+  box-shadow:0 0 0 4px rgba(242,179,28,.15),0 0 18px rgba(242,179,28,.20);
+}
+.manutencao-eletrica-nova-hotspot:active,
+.climatizacao-24h-cta:active,
+.projeto-eletrico-cta:active{
+  transform:translateY(0) scale(.985);
+}
+
+@media (hover:hover) and (pointer:fine){
+  .manutencao-eletrica-nova-hotspot:hover,
+  .climatizacao-24h-cta:hover,
+  .projeto-eletrico-cta:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.06);
+    box-shadow:0 8px 18px rgba(0,0,0,.30),0 0 20px rgba(242,179,28,.26),inset 0 0 0 1px rgba(255,216,92,.24);
+  }
+  .manutencao-eletrica-nova-hotspot:hover::before,
+  .climatizacao-24h-cta:hover::before,
+  .projeto-eletrico-cta:hover::before{
+    opacity:1;
+    transform:translateX(115%);
+    transition:transform .52s ease,opacity .16s ease;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .manutencao-eletrica-nova-hotspot,
+  .climatizacao-24h-cta,
+  .projeto-eletrico-cta{transition:none!important}
+  .manutencao-eletrica-nova-hotspot::before,
+  .climatizacao-24h-cta::before,
+  .projeto-eletrico-cta::before{display:none!important}
+  .manutencao-eletrica-nova-hotspot:hover,
+  .climatizacao-24h-cta:hover,
+  .projeto-eletrico-cta:hover,
+  .manutencao-eletrica-nova-hotspot:active,
+  .climatizacao-24h-cta:active,
+  .projeto-eletrico-cta:active{transform:none!important}
+}
