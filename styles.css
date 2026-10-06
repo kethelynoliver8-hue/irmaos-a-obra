@@ -1116,3 +1116,52 @@ html,body{max-width:100%;overflow-x:clip}
   .servicos-btn,.mobile-cta,.header-cta{font-size:10.5px;padding-inline:9px;gap:6px}
   .servicos-btn .icone-btn,.mobile-cta .icone-btn,.header-cta .icone-btn{flex-basis:20px;width:20px;height:20px;min-width:20px}
 }
+
+
+/* === 3 ajustes mobile solicitados — 2026-10-06 === */
+@media (max-width:767px){
+  /* Regiões: preserva duas colunas e permite nomes longos sem cortes. */
+  .cidades{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-auto-rows:auto;
+    align-items:stretch;
+    gap:10px;
+  }
+  .chip-cidade{
+    min-width:0;
+    min-height:64px;
+    height:auto;
+    padding:9px 8px;
+    gap:7px;
+    border-radius:18px;
+    align-items:center;
+    justify-content:flex-start;
+    font-size:clamp(10px,2.85vw,12px);
+    line-height:1.18;
+    white-space:normal;
+    overflow:visible;
+  }
+  .chip-cidade .icone-pin{
+    width:16px;
+    height:16px;
+    min-width:16px;
+    flex:0 0 16px;
+  }
+  .chip-cidade span{
+    display:block;
+    min-width:0;
+    max-width:100%;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    overflow-wrap:break-word;
+    word-break:normal;
+    hyphens:none;
+  }
+
+  /* Rodapé: o WhatsApp é fixo e não precisa de espaço reservado no fluxo. */
+  .rodape-direitos{padding-bottom:0!important}
+  .rodape-direitos p{padding:18px 0 20px}
+  footer#rodape{min-height:0;height:auto;margin-bottom:0;padding-bottom:0}
+  .whatsapp-float{position:fixed!important;z-index:60}
+}
