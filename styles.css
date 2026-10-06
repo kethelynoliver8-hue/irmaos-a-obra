@@ -1086,55 +1086,33 @@ html,body{max-width:100%;overflow-x:clip}
 }
 
 
-/* === Correção de publicação GitHub Pages 2026-10-05 === */
-/* Força as cinco artes iniciais a seguirem a largura real da viewport,
-   sem alturas herdadas, letterboxing ou espaços pretos artificiais. */
-.hero.hero-arte,
-.apresentacao-section,
-.manutencao-eletrica-nova-section,
-.climatizacao-24h-section,
-.projeto-eletrico-section{
-  width:100%!important;
-  max-width:none!important;
-  height:auto!important;
-  min-height:0!important;
-  margin:0!important;
-  padding:0!important;
-  overflow:hidden!important;
+/* === Mobile vertical artwork swap — 2026-10-05 === */
+@media (max-width:767px){
+  html,body{max-width:100%;overflow-x:clip}
+  .hero.hero-arte,.apresentacao-section,.manutencao-eletrica-nova-section,.climatizacao-24h-section,.projeto-eletrico-section{width:100%;max-width:none;height:auto;min-height:0;margin:0;padding:0;overflow:hidden}
+  .hero-photo-wrap,.hero-picture,.apresentacao-media,.apresentacao-media picture,.manutencao-eletrica-nova-media,.manutencao-eletrica-nova-media picture,.climatizacao-24h-media,.climatizacao-24h-media picture,.projeto-eletrico-media,.projeto-eletrico-media picture{display:block;width:100%;max-width:none;height:auto;min-height:0;margin:0;padding:0;aspect-ratio:auto;line-height:0}
+  .hero-photo,.apresentacao-imagem,.manutencao-eletrica-nova-imagem,.climatizacao-24h-imagem,.projeto-eletrico-imagem{display:block;width:100%;max-width:none;height:auto;min-height:0;margin:0;padding:0;object-fit:contain;object-position:center;transform:none!important}
+  .visual-divider{width:100%;max-width:none;margin:0;height:22px}
+  .visual-divider img{width:100%;max-width:none}
+
+  /* Hotspots reposicionados para os botões impressos nas novas artes verticais. */
+  .apresentacao-cta{left:20.4%;top:34.0%;width:59.4%;height:6.9%}
+  .manutencao-eletrica-nova-hotspot{left:17.2%;width:65.6%;height:5.9%;border-radius:8px}
+  .manutencao-eletrica-nova-contato{top:66.8%}
+  .manutencao-eletrica-nova-orcamento{top:73.9%}
+  .climatizacao-24h-cta{left:7.4%;top:77.1%;width:85.4%;height:7.0%;border-radius:8px}
+  .projeto-eletrico-cta{left:7.8%;top:86.5%;width:84.2%;height:9.1%;border-radius:8px}
+
+  /* Botões HTML: sem estouro lateral e com tipografia adaptativa. */
+  .servicos-final,.servicos-final-actions,.servico-dialog-content,.mobile-menu nav{min-width:0;max-width:100%;box-sizing:border-box}
+  .servicos-final-actions{width:100%;flex-wrap:wrap}
+  .servicos-btn,.mobile-cta,.header-cta{width:100%;max-width:100%;min-width:0;box-sizing:border-box;padding-inline:clamp(10px,3.2vw,14px);gap:8px;white-space:normal;text-align:center;justify-content:center;line-height:1.15;font-size:clamp(10.5px,3.1vw,13px)}
+  .servicos-btn span,.mobile-cta span,.header-cta span{min-width:0;max-width:100%;overflow-wrap:normal;word-break:normal}
+  .servicos-btn .icone-btn,.mobile-cta .icone-btn,.header-cta .icone-btn{flex:0 0 22px;width:22px;height:22px;min-width:22px}
+  .whatsapp-float{width:62px!important;height:62px!important;right:12px;bottom:12px}
+  .whatsapp-float .icone-btn{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;flex-basis:32px!important}
 }
-.hero.hero-arte .hero-photo-wrap,
-.hero.hero-arte .hero-picture,
-.apresentacao-media,
-.apresentacao-media picture,
-.manutencao-eletrica-nova-media,
-.manutencao-eletrica-nova-media picture,
-.climatizacao-24h-media,
-.climatizacao-24h-media picture,
-.projeto-eletrico-media,
-.projeto-eletrico-media picture{
-  display:block!important;
-  position:relative;
-  width:100%!important;
-  max-width:none!important;
-  height:auto!important;
-  min-height:0!important;
-  margin:0!important;
-  padding:0!important;
-  aspect-ratio:auto!important;
-}
-.hero.hero-arte .hero-photo,
-.apresentacao-imagem,
-.manutencao-eletrica-nova-imagem,
-.climatizacao-24h-imagem,
-.projeto-eletrico-imagem{
-  display:block!important;
-  width:100%!important;
-  max-width:none!important;
-  height:auto!important;
-  min-height:0!important;
-  margin:0!important;
-  padding:0!important;
-  object-fit:contain!important;
-  object-position:center!important;
-  transform:none!important;
+@media (max-width:380px){
+  .servicos-btn,.mobile-cta,.header-cta{font-size:10.5px;padding-inline:9px;gap:6px}
+  .servicos-btn .icone-btn,.mobile-cta .icone-btn,.header-cta .icone-btn{flex-basis:20px;width:20px;height:20px;min-width:20px}
 }
