@@ -1125,3 +1125,12 @@ html,body{max-width:100%;overflow-x:clip}
   .chip-cidade span{min-width:0;max-width:100%;white-space:normal;word-break:normal;overflow-wrap:normal}
   .rodape-direitos{padding-bottom:8px}
 }
+
+/* Orçamento visível no cabeçalho dos celulares, ao lado do menu. */
+@media (max-width:767px){
+  .site-header .header-inner{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+  .site-header .header-cta{display:inline-flex;flex:0 1 auto;width:auto;max-width:calc(100% - 54px);min-height:40px;padding:0 12px;margin-left:auto;gap:8px;white-space:nowrap;font-size:12px;line-height:1.15}
+  .site-header .header-cta .icone-btn{flex:0 0 18px;width:18px;height:18px;min-width:18px}
+  .site-header .menu-toggle{flex:0 0 46px;margin-left:0}
+  .site-header .mobile-menu .mobile-cta{display:none}
+}
