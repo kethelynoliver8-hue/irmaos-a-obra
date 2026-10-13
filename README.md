@@ -1,4 +1,4 @@
-# Irmãos à Obra — base do site
+# Irmãos na Obra — base do site
 
 Base one-page pronta para GitHub Pages. Nesta etapa existem apenas: cabeçalho, banner principal e botão flutuante de WhatsApp. Os links Serviços, Orçamento, Certificações e Regiões já estão preparados para as próximas seções, mas ainda não têm seções correspondentes.
 
@@ -53,7 +53,7 @@ Quando Serviços, Orçamento, Certificações e Regiões forem criadas, use resp
 - Nova seção `#servicos` logo abaixo do banner, com cabeçalho, grade bento de 7 serviços e faixa final de contato.
 - Cenas: `assets/images/servicos/servico-01.webp` até `servico-07.webp`. Para trocar uma cena, substitua o PNG mantendo o mesmo nome/caminho.
 - Títulos, descrições, listas, cenas e textos alternativos ficam no array `SERVICOS` em `script.js`.
-- O modal de cada serviço usa a mensagem: `Olá! Vim pelo site dos Irmãos à Obra e quero um orçamento de [nome do serviço].`, sempre com o número central do `CONFIG`.
+- O modal de cada serviço usa a mensagem: `Olá! Vim pelo site dos Irmãos na Obra e quero um orçamento de [nome do serviço].`, sempre com o número central do `CONFIG`.
 - O item “Serviços” do menu já aponta para `#servicos` e entra no scroll-spy existente.
 
 

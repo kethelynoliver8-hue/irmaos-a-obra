@@ -6,8 +6,8 @@ const CONFIG = {
   telefones: { principal: '5548991696661', secundario: '5548996865570' },
   textos: { principal: '(48) 99169-6661', secundario: '(48) 99686-5570' },
   mensagens: {
-    principal: 'Olá! Vim pelo site dos Irmãos à Obra e quero atendimento.',
-    orcamento: 'Olá! Vim pelo site dos Irmãos à Obra e quero fazer um orçamento.'
+    principal: 'Olá! Vim pelo site dos Irmãos na Obra e quero atendimento.',
+    orcamento: 'Olá! Vim pelo site dos Irmãos na Obra e quero fazer um orçamento.'
   },
   certificacoes: [
     {sigla:'NR 10',legenda:'Eletricidade',garante:'Equipe com treinamento de 40 horas da NR 10 e reciclagens periódicas, capacitada em medidas de controle de risco elétrico.'},
@@ -170,7 +170,7 @@ if(servicosGrid){
     const dialogImg=servicoDialog.querySelector('[data-servico-dialog-img]'); dialogImg.src=s.cena; dialogImg.alt=s.alt; dialogImg.width=s.largura; dialogImg.height=s.altura;
     servicoDialog.querySelector('[data-servico-dialog-num]').textContent=s.numero; servicoDialog.querySelector('[data-servico-dialog-title]').textContent=s.titulo;
     servicoDialog.querySelector('[data-servico-dialog-list]').innerHTML=s.lista.map(x=>`<li>${x}</li>`).join('');
-    const cta=servicoDialog.querySelector('[data-servico-dialog-cta]'); cta.href=whatsappUrl(`Olá! Vim pelo site dos Irmãos à Obra e quero um orçamento de ${s.titulo}.`);
+    const cta=servicoDialog.querySelector('[data-servico-dialog-cta]'); cta.href=whatsappUrl(`Olá! Vim pelo site dos Irmãos na Obra e quero um orçamento de ${s.titulo}.`);
     document.documentElement.classList.add('dialog-open'); servicoDialog.showModal(); servicoDialog.querySelector('[data-servico-close]').focus();
   };
   cards.forEach((card,i)=>{card.addEventListener('click',()=>openServico(i,card));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openServico(i,card)}})});
@@ -257,7 +257,7 @@ if (regioesSection) {
     }
     const iframe = document.createElement('iframe');
     iframe.src = CONFIG.mapaUrl;
-    iframe.title = 'Mapa da região atendida pelos Irmãos à Obra';
+    iframe.title = 'Mapa da região atendida pelos Irmãos na Obra';
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
     iframe.setAttribute('allowfullscreen', '');
     iframe.addEventListener('load', () => mapaStatus?.remove(), { once: true });
